@@ -5,7 +5,7 @@
 		"email": "mariosant@sent.com",
 		"website": "https://mariosant.carrd.co"
 	},
-	"version": "0.0.0",
+	"version": "0.0.1",
 	"description": "Create paginated content with this easy to use React Hook",
 	"main": "./dist/index.js",
 	"scripts": {
