@@ -1,51 +1,68 @@
 import {createReducer, when} from '@mariosant/imm';
-
-const {max, min, ceil} = Math;
-
-const getTotalPages = ({data, perPage}) => ceil(data.length / perPage) - 1;
-
-const getNextPage = ({data, page, perPage}) =>
-	min(Math.ceil(data.length / perPage) - 1, page + 1);
-
-const getPreviousPage = ({page}) => max(0, page - 1);
-
-const extractPage = ({data, perPage}, page) => {
-	const from = page * perPage;
-	const to = (page + 1) * perPage;
-
-	return data.slice(from, to);
-};
+import {
+	extractPage,
+	getPreviousPage,
+	getNextPage,
+	getTotalPages,
+} from './helpers';
 
 const reducer = createReducer(
-	when('FIRST_PAGE', state => ({
-		...state,
-		page: 0,
-		paginated: extractPage(state, 0),
-	})),
-	when('LAST_PAGE', state => ({
-		...state,
-		page: getTotalPages(state),
-		paginated: extractPage(state, getTotalPages(state)),
-	})),
-	when('NEXT_PAGE', state => ({
-		...state,
-		page: getNextPage(state),
-		paginated: extractPage(state, getNextPage(state)),
-	})),
-	when('PREVIOUS_PAGE', state => ({
-		...state,
-		page: getPreviousPage(state),
-		paginated: extractPage(state, getPreviousPage(state)),
-	})),
-	when('PER_PAGE', (state, {payload}) => ({
-		...state,
-		perPage: payload,
-		page: min(state.page, getTotalPages({data: state.data, perPage: payload})),
-		paginated: extractPage(
-			{...state, perPage: payload},
-			min(state.page, getTotalPages({data: state.data, perPage: payload})),
-		),
-	})),
+	when('FIRST_PAGE', state => {
+		const {perPage, data} = state;
+		const page = 0;
+		const paginated = extractPage(0, perPage, data);
+
+		return {
+			...state,
+			page,
+			paginated,
+		};
+	}),
+	when('LAST_PAGE', state => {
+		const {perPage, data} = state;
+		const page = getTotalPages(perPage, data);
+		const paginated = extractPage(page, perPage, data);
+
+		return {
+			...state,
+			page,
+			paginated,
+		};
+	}),
+	when('NEXT_PAGE', state => {
+		const {data, perPage} = state;
+		const page = getNextPage(state.page, perPage, data);
+		const paginated = extractPage(page, perPage, data);
+
+		return {
+			...state,
+			page,
+			paginated,
+		};
+	}),
+	when('PREVIOUS_PAGE', state => {
+		const page = getPreviousPage(state.page);
+		const {data, perPage} = state;
+		const paginated = extractPage(page, perPage, data);
+
+		return {
+			...state,
+			page,
+			paginated,
+		};
+	}),
+	when('PER_PAGE', (state, {payload: perPage}) => {
+		const {data} = state;
+		const page = Math.min(state.page, getTotalPages(perPage, data));
+		const paginated = extractPage(page, perPage, data);
+
+		return {
+			...state,
+			perPage,
+			page,
+			paginated,
+		};
+	}),
 );
 
 export default reducer;

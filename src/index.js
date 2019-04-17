@@ -7,9 +7,7 @@ import {
 	setPerPage,
 } from './actions';
 import reducer from './reducer';
-
-const extractPage = ({data, perPage}, nextPage) =>
-	data.slice(nextPage * perPage, (nextPage + 1) * perPage);
+import {extractPage} from './helpers';
 
 const usePagination = (data = [], opts) => {
 	const {perPage, page} = {
@@ -21,7 +19,7 @@ const usePagination = (data = [], opts) => {
 		data,
 		page,
 		perPage,
-		paginated: extractPage({data, perPage}, page),
+		paginated: extractPage(page, perPage, data),
 	});
 
 	return {
