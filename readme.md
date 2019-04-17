@@ -5,6 +5,9 @@
 [![NPM version](https://img.shields.io/npm/v/@mariosant/react-pagination-hook.svg)](https://www.npmjs.com/package/@mariosant/react-pagination-hook)
 [![Build Status](https://travis-ci.org/mariosant/react-pagination-hook.svg?branch=master)](https://travis-ci.org/mariosant/react-pagination-hook)
 
+
+![gif](https://i.imgur.com/WFz6eg4.gif)
+
 ## Installation
 
 Add `@mariosant/react-pagination-hook` to your `package.json`.
@@ -36,6 +39,7 @@ const Component = ({data}) => {
 
 	)
 ```
+ You can also try in on CodeSandbox: https://codesandbox.io/s/74089wz7z1
 
 ## Usage
 
