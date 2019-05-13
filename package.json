@@ -34,7 +34,7 @@
 		"react": "^16.8.6",
 		"react-dom": "^16.8.6",
 		"react-hooks-testing-library": "^0.4.1",
-		"react-testing-library": "^6.0.0",
+		"react-testing-library": "^7.0.0",
 		"standard-version": "^5.0.2",
 		"xo": "^0.24.0"
 	},
