@@ -50,6 +50,20 @@ describe('reducer', () => {
 		});
 	});
 
+	test('goto page', () => {
+		const testState = {
+			...state,
+			page: 1,
+			paginated: R.map(i => `${i} data`, R.range(10, 20)),
+		};
+
+		expect(reducer(testState, actions.gotoPage(5))).toEqual({
+			...state,
+			page: 5,
+			paginated: R.map(i => `${i} data`, R.range(50, 60)),
+		});
+	});
+
 	test('per page', () => {
 		expect(reducer(state, actions.setPerPage(20))).toEqual({
 			...state,

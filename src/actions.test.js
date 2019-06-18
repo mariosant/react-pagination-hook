@@ -3,6 +3,7 @@ import {
 	lastPage,
 	nextPage,
 	previousPage,
+	gotoPage,
 	setPerPage,
 	setData
 } from './actions';
@@ -23,6 +24,10 @@ describe('actions', () => {
 	test('previousPage', () => {
 		expect(previousPage).toEqual(expect.any(Function));
 	});
+
+	test('gotoPage', () => {
+		expect(gotoPage).toEqual(expect.any(Function));
+	})
 
 	test('setPerPage', () => {
 		expect(setPerPage).toEqual(expect.any(Function));
