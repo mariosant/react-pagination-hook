@@ -5,7 +5,7 @@ import {
 	previousPage,
 	gotoPage,
 	setPerPage,
-	setData
+	setData,
 } from './actions';
 
 describe('actions', () => {
@@ -27,12 +27,12 @@ describe('actions', () => {
 
 	test('gotoPage', () => {
 		expect(gotoPage).toEqual(expect.any(Function));
-	})
+	});
 
 	test('setPerPage', () => {
 		expect(setPerPage).toEqual(expect.any(Function));
 	});
 	test('setData', () => {
 		expect(setData).toEqual(expect.any(Function));
-	})
+	});
 });

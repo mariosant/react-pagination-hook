@@ -8,11 +8,11 @@ import {
 
 const reducer = createReducer(
 	when('SET_DATA', (state, {payload: data}) => {
-		const { page, perPage } = state;
+		const {page, perPage} = state;
 
-		const paginated = extractPage(page,perPage, data);
+		const paginated = extractPage(page, perPage, data);
 
-		return {...state, data, paginated}
+		return {...state, data, paginated};
 	}),
 	when('FIRST_PAGE', state => {
 		const {perPage, data} = state;
@@ -58,7 +58,7 @@ const reducer = createReducer(
 			paginated,
 		};
 	}),
-	when('GOTO_PAGE', (state, { payload: page }) => {
+	when('GOTO_PAGE', (state, {payload: page}) => {
 		const {data, perPage} = state;
 		const paginated = extractPage(page, perPage, data);
 
@@ -68,7 +68,7 @@ const reducer = createReducer(
 			paginated,
 		};
 	}),
-	when('PER_PAGE', (state, { payload: perPage }) => {
+	when('PER_PAGE', (state, {payload: perPage}) => {
 		const {data} = state;
 		const page = Math.min(state.page, getTotalPages(perPage, data));
 		const paginated = extractPage(page, perPage, data);

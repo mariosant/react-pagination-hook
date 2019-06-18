@@ -11,7 +11,7 @@ const state = {
 	paginated: R.map(i => `${i} data`, R.range(0, 10)),
 };
 
-const data2 =  R.map(i => `${i} data2`, R.range(101,200))
+const data2 = R.map(i => `${i} data2`, R.range(101, 200));
 
 describe('reducer', () => {
 	test('first page', () => {
@@ -79,7 +79,7 @@ describe('reducer', () => {
 			page: 0,
 			perPage: 10,
 			data: data2,
-			paginated: R.map(i => `${i} data2`, R.range(101,111))
-		})
-	})
+			paginated: R.map(i => `${i} data2`, R.range(101, 111)),
+		});
+	});
 });
