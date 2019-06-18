@@ -6,7 +6,7 @@ import {
 	previousPage,
 	gotoPage,
 	setPerPage,
-	setData
+	setData,
 } from './actions';
 import reducer from './reducer';
 import {extractPage} from './helpers';
