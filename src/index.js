@@ -5,6 +5,7 @@ import {
 	nextPage,
 	previousPage,
 	setPerPage,
+	setData,
 } from './actions';
 import reducer from './reducer';
 import {extractPage} from './helpers';
@@ -28,6 +29,7 @@ const usePagination = (data = [], opts) => {
 		nextPage: () => dispatch(nextPage()),
 		previousPage: () => dispatch(previousPage()),
 		setPerPage: v => dispatch(setPerPage(v)),
+		setData: v => dispatch(setData(v)),
 		totalPages: Math.ceil(data.length / state.perPage),
 		paginated: state.paginated,
 		page: state.page + 1,

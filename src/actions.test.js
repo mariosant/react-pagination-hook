@@ -4,6 +4,7 @@ import {
 	nextPage,
 	previousPage,
 	setPerPage,
+	setData
 } from './actions';
 
 describe('actions', () => {
@@ -26,4 +27,7 @@ describe('actions', () => {
 	test('setPerPage', () => {
 		expect(setPerPage).toEqual(expect.any(Function));
 	});
+	test('setData', () => {
+		expect(setData).toEqual(expect.any(Function));
+	})
 });

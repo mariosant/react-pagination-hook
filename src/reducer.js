@@ -7,6 +7,13 @@ import {
 } from './helpers';
 
 const reducer = createReducer(
+	when('SET_DATA', (state, {payload: data}) => {
+		const { page, perPage } = state;
+
+		const paginated = extractPage(page,perPage, data);
+
+		return {...state, data, paginated}
+	}),
 	when('FIRST_PAGE', state => {
 		const {perPage, data} = state;
 		const page = 0;
