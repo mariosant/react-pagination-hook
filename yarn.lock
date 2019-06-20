@@ -981,9 +981,9 @@
     "@types/yargs" "^12.0.9"
 
 "@mariosant/imm@^0.6.9":
-  version "0.6.10"
-  resolved "https://registry.yarnpkg.com/@mariosant/imm/-/imm-0.6.10.tgz#a95e46fb07072a076c6ebfb7e740e1d60d9435f6"
-  integrity sha512-iZ0Rf5Kci1Za4yYuVcLe1BjlaqaXugnYEcVDk/+t2L6TzTZDlrhewTjXE8AkRwn/WD+2z88TtYqbpmruxJTwhg==
+  version "0.6.12"
+  resolved "https://registry.yarnpkg.com/@mariosant/imm/-/imm-0.6.12.tgz#6d031aaf43c276e7ee1cebecae037d8935f29ae9"
+  integrity sha512-euvtPD6QlRs4oRWn0pQkKCtXWwte/Dj2p9RP11z1Vdw95+w4SSd4bXHr7JtQcegoqEYxczja46U5xIH9GF9A1A==
   dependencies:
     ramda "^0"
 
