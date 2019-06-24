@@ -12,6 +12,7 @@ const Component = () => {
 		previousPage,
 		paginated,
 		page,
+		gotoPage,
 		totalPages,
 		firstPage,
 		lastPage,
@@ -43,6 +44,9 @@ const Component = () => {
 			</button>
 			<button type="button" onClick={() => setPerPage(20)}>
 				20 per page
+			</button>
+			<button type="button" onClick={() => gotoPage(3)}>
+				Goto to page 3
 			</button>
 		</div>
 	);
