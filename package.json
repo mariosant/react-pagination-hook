@@ -16,7 +16,7 @@
 	},
 	"license": "MIT",
 	"dependencies": {
-		"@mariosant/imm": "^0.6.9"
+		"@mariosant/imm": "^1.0.0"
 	},
 	"devDependencies": {
 		"@babel/cli": "^7.2.3",
