@@ -1,4 +1,4 @@
-import {useReducer} from 'react';
+import {useCallback, useReducer} from 'react';
 import {
 	firstPage,
 	lastPage,
@@ -25,13 +25,13 @@ const usePagination = (data = [], opts) => {
 	});
 
 	return {
-		firstPage: () => dispatch(firstPage()),
-		lastPage: () => dispatch(lastPage()),
-		nextPage: () => dispatch(nextPage()),
-		previousPage: () => dispatch(previousPage()),
-		gotoPage: v => dispatch(gotoPage(v)),
-		setPerPage: v => dispatch(setPerPage(v)),
-		setData: v => dispatch(setData(v)),
+		firstPage: useCallback(() => dispatch(firstPage()), []),
+		lastPage: useCallback(() => dispatch(lastPage()), []),
+		nextPage: useCallback(() => dispatch(nextPage()), []),
+		previousPage: useCallback(() => dispatch(previousPage()), []),
+		gotoPage: useCallback(v => dispatch(gotoPage(v)), []),
+		setPerPage: useCallback(v => dispatch(setPerPage(v)), []),
+		setData: useCallback(v => dispatch(setData(v)), []),
 		totalPages: Math.ceil(data.length / state.perPage),
 		paginated: state.paginated,
 		page: state.page + 1,
